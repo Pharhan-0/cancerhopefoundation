@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Payment Method</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #000, #333);
+            color: #ffc107;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .payment-section {
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .payment-section h2 {
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .payment-options button {
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        .payment-options button:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+
+        #thank-you-message {
+            display: none;
+            margin-top: 20px;
+            color: #28a745;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .btn-done {
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-done:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <section class="payment-section">
+        <h2>Select Payment Method</h2>
+        <div class="payment-options">
+            <button id="internet-banking" class="payment-btn">Internet Banking</button>
+            <button id="upi" class="payment-btn">UPI</button>
+            <button id="bank-transfer" class="payment-btn">Bank Transfer</button>
+        </div>
+        <button id="final-done" class="btn-done mt-3">Final Done</button>
+        <div id="thank-you-message">Thank you for your donation!</div>
+    </section>
+
+    <script>
+        document.getElementById('final-done').addEventListener('click', function () {
+            const thankYouMessage = document.getElementById('thank-you-message');
+            thankYouMessage.style.display = 'block';
+        });
+
+        document.querySelectorAll('.payment-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                alert(`You selected ${this.innerText} as your payment method.`);
+            });
+        });
+    </script>
+</body>
+</html>

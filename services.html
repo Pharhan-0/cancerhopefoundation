@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Cloudflare Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Background Video Container */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send behind other content */
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .services-section {
+            padding: 50px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85); /* Adds semi-transparent overlay */
+            position: relative; /* Ensure the section is above the video */
+            z-index: 1; /* Set above the video */
+        }
+
+        .services-section h2 {
+            font-size: 2.5rem;
+            color: #6a0572;
+            margin-bottom: 30px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            color: #6a0572;
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="video/7522355-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            <source src="" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section animate__animated animate__fadeIn">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div class="service-item animate__animated animate__zoomIn">
+                    <h3>Cancer Support Groups</h3>
+                    <p>Join support groups for cancer patients and survivors, helping each other in the fight against cancer.</p>
+                </div>
+                <div class="service-item animate__animated animate__zoomIn">
+                    <h3>Patient Assistance Programs</h3>
+                    <p>We provide financial aid and medical support for cancer patients and their families in need.</p>
+                </div>
+                <div class="service-item animate__animated animate__zoomIn">
+                    <h3>Awareness Campaigns</h3>
+                    <p>We promote cancer awareness through events, workshops, and educational programs.</p>
+                </div>
+                <div class="service-item animate__animated animate__zoomIn">
+                    <h3>Research Funding</h3>
+                    <p>Your donations help fund cutting-edge research to find a cure for cancer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

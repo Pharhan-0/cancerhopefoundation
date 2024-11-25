@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as a Volunteer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .volunteer-section {
+            padding: 50px 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 100px auto;
+        }
+
+        .volunteer-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #5a5a5a;
+        }
+
+        .volunteer-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        #volunteer-message {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        #thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        #thank-you-popup h3 {
+            margin-bottom: 20px;
+        }
+
+        #thank-you-popup button {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        #thank-you-popup button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-bg" autoplay muted loop>
+        <source src="video/6646618-hd_1920_1080_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <section id="volunteer" class="volunteer-section">
+        <h2>Join as a Volunteer</h2>
+        <p>Your time and dedication can bring a positive change to the lives of cancer patients. Together, we can build a community of hope and support. Every effort counts, and we value your willingness to make a difference.</p>
+        <form id="volunteer-form">
+            <div class="form-group">
+                <label for="volunteer-name">Your Name:</label>
+                <input type="text" id="volunteer-name" name="volunteer-name" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-email">Your Email:</label>
+                <input type="email" id="volunteer-email" name="volunteer-email" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-message">Why Do You Want to Volunteer?</label>
+                <textarea id="volunteer-message" name="volunteer-message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+        <div id="volunteer-message">
+            <p><strong>Message for Volunteers:</strong> Thank you for taking the first step towards becoming a beacon of hope. We are excited to have you on our team!</p>
+        </div>
+    </section>
+
+    <div id="thank-you-popup">
+        <h3>Thank You!</h3>
+        <p>Your volunteer request has been received. We will contact you soon!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        document.getElementById('volunteer-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('thank-you-popup').style.display = 'block';
+        });
+
+        function closePopup() {
+            document.getElementById('thank-you-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

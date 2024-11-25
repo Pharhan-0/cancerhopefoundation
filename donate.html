@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Background video styling */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .donation-section {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .donation-section h2 {
+            color: #6a0572;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .form-control {
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #6a0572;
+            box-shadow: 0 0 10px #6a0572;
+        }
+
+        .btn-3d {
+            background-color: #ff69b4;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-3d:hover {
+            background-color: #e05694;
+        }
+
+        .preset-buttons {
+            margin: 20px 0;
+        }
+
+        .preset-buttons button {
+            margin: 5px;
+            background-color: #ffb6c1;
+            color: #6a0572;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .preset-buttons button:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video -->
+    <video id="background-video" autoplay muted loop>
+        <source src="video/9196648-uhd_4096_2160_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <section id="donate" class="donation-section">
+        <h2>Make a Donation</h2>
+        <form id="donation-form" class="needs-validation" novalidate>
+            <div class="preset-buttons">
+                <button type="button" class="preset-btn" data-amount="100">₹100</button>
+                <button type="button" class="preset-btn" data-amount="500">₹500</button>
+                <button type="button" class="preset-btn" data-amount="1000">₹1000</button>
+                <button type="button" class="preset-btn" data-amount="custom">Custom</button>
+            </div>
+            <div class="mb-3">
+                <label for="donation-amount" class="form-label">Donation Amount (₹):</label>
+                <input type="number" id="donation-amount" name="donation-amount" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid donation amount.</div>
+            </div>
+            <div class="mb-3">
+                <label for="donor-name" class="form-label">Your Name:</label>
+                <input type="text" id="donor-name" name="donor-name" class="form-control" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+                <label for="donor-email" class="form-label">Your Email:</label>
+                <input type="email" id="donor-email" name="donor-email" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <button type="button" class="btn btn-3d" id="donate-now-btn">Donate Now</button>
+        </form>
+    </section>
+
+    <script>
+        (function () {
+            'use strict';
+            const form = document.getElementById('donation-form');
+            const donateButton = document.getElementById('donate-now-btn');
+
+            // Preset button functionality
+            document.querySelectorAll('.preset-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const amount = this.getAttribute('data-amount');
+                    const amountInput = document.getElementById('donation-amount');
+                    if (amount === 'custom') {
+                        amountInput.value = '';
+                        amountInput.focus();
+                    } else {
+                        amountInput.value = amount;
+                    }
+                });
+            });
+
+            // Validate form and redirect
+            donateButton.addEventListener('click', function () {
+                const donationAmount = document.getElementById('donation-amount').value;
+                const donorName = document.getElementById('donor-name').value.trim();
+                const donorEmail = document.getElementById('donor-email').value.trim();
+
+                if (!donationAmount || isNaN(donationAmount) || donationAmount <= 0) {
+                    alert('Please enter a valid donation amount.');
+                    return;
+                }
+
+                if (!donorName) {
+                    alert('Please enter your name.');
+                    return;
+                }
+
+                if (!donorEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(donorEmail)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                // If all validations pass, redirect to payment-method.html
+                window.location.href = 'payment-method.html';
+            });
+        })();
+    </script>
+</body>
+</html>

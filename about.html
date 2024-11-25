@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Charity</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Background Video Styling */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind the content */
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Overall Section Styling */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        .about-section {
+            position: relative;
+            z-index: 1; /* Above the video */
+            padding: 60px 15px;
+            background: rgba(0, 0, 0, 0.6); /* Adds transparency to improve text readability */
+            border-radius: 15px;
+        }
+
+        .about-section h2,
+        .about-section h3 {
+            color: #ffc107;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .img-fluid {
+            transition: transform 0.3s ease;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.05);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Row Animation */
+        .animate-row {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<div class="video-container">
+    <video autoplay loop muted>
+        <source src="video/6824224-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        <source src="background-video.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<section id="about" class="about-section container">
+    <div>
+        <h2 class="text-center mb-4 animate__animated animate__fadeIn">About Our Charity</h2>
+        <p class="text-center mb-5 animate__animated animate__fadeIn">We are dedicated to supporting individuals affected by cancer, offering financial and emotional assistance, and advancing research efforts toward a cure.</p>
+
+        <div class="row animate-row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Our Mission</h3>
+                        <p class="card-text">To support individuals and families affected by cancer through community outreach, fundraising, and providing access to medical resources.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Our Vision</h3>
+                        <p class="card-text">A world where every cancer patient receives the care and support they need, and where cancer is no longer a deadly disease.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Our Values</h3>
+                        <ul>
+                            <li>Compassion</li>
+                            <li>Hope</li>
+                            <li>Dedication</li>
+                            <li>Collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 animate-row">
+            <div class="col-lg-6">
+                <img src="images/preview.png" alt="About Us" class="img-fluid rounded shadow-sm mb-4">
+            </div>
+            <div class="col-lg-6">
+                <h3>Our Impact</h3>
+                <p>Since our founding, we have supported thousands of individuals and families through our financial aid programs, emotional counseling, and access to cutting-edge medical research. Our work continues to empower communities and reduce the burden of cancer.</p>
+                <p>We are proud to have raised millions in funds dedicated to cancer research and patient support. Every year, our team of volunteers and supporters make a significant impact in the lives of those affected by cancer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
